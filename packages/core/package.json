@@ -1,0 +1,68 @@
+{
+  "name": "tabler-animated-icons",
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "icons",
+    "react icons",
+    "animated icons"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    }
+  },
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && vite build",
+    "build:js": "tsc --project tsconfig.build.json && pnpm prettier --write src/bundle"
+  },
+  "peerDependencies": {
+    "@types/react": "^18 || ^19",
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "motion": "12.43.0"
+  },
+  "devDependencies": {
+    "@siberiacancode/vitest": "^2.4.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/dom-speech-recognition": "^0.0.12",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/web-bluetooth": "^0.0.21",
+    "@vitejs/plugin-react": "^6.0.2",
+    "core-js": "^3.49.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "shx": "^0.4.0",
+    "vite": "^8.0.16",
+    "vite-plugin-dts": "^5.0.2",
+    "vitest": "^4.1.9"
+  }
+}

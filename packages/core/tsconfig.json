@@ -1,0 +1,7 @@
+{
+  "extends": "@siberiacancode/tsconfig/tsconfig.react.json",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}
