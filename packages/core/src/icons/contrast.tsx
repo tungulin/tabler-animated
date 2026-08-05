@@ -2,17 +2,9 @@
 
 import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
-import type { HTMLAttributes } from 'react';
 import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
-export interface ContrastIconHandle {
-  startAnimation: () => void;
-  stopAnimation: () => void;
-}
-
-interface ContrastIconProps extends HTMLAttributes<HTMLDivElement> {
-  size?: number;
-}
+import type { IconHandle, IconProps } from '../types';
 
 const PATH_VARIANT: Variants = {
   normal: { rotate: 0 },
@@ -27,7 +19,7 @@ const PATH_VARIANT: Variants = {
   }
 };
 
-const ContrastIcon = forwardRef<ContrastIconHandle, ContrastIconProps>(
+const ContrastIcon = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);

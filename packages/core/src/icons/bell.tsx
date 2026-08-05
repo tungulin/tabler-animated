@@ -1,23 +1,16 @@
 'use client';
 
 import { motion, useAnimation, Variants } from 'motion/react';
-import { forwardRef, HTMLAttributes, useCallback, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
-interface BellIconProps extends HTMLAttributes<HTMLDivElement> {
-  size?: number;
-}
-
-export interface IconHandle {
-  startAnimation: () => void;
-  stopAnimation: () => void;
-}
+import type { IconHandle, IconProps } from '../types';
 
 const SVG_VARIANTS: Variants = {
   normal: { rotate: 0 },
   animate: { rotate: [0, -10, 10, -10, 0] }
 };
 
-const BellIcon = forwardRef<IconHandle, BellIconProps>(
+const BellIcon = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
