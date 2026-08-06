@@ -49,27 +49,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     root.classList.add(activeTheme);
   }, [theme, colorScheme]);
 
-  const animate = async (x: number, y: number, theme: Theme) => {
-    const radius = Math.hypot(window.innerWidth, window.innerHeight);
-
-    await document.startViewTransition(() => {
-      setTheme(theme);
-    }).ready;
-
-    //TODO: ADD
-    // document.documentElement.animate(
-    //   {
-    //     clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`]
-    //   },
-    //   {
-    //     duration: 700,
-    //     easing: 'ease-in-out',
-    //     pseudoElement: '::view-transition-new(root)'
-    //   }
-    // );
-  };
-
-  const value = useMemo(() => ({ value: getTheme(theme), set: setTheme, animate }), [theme]);
+  const value = useMemo(() => ({ value: getTheme(theme), set: setTheme }), [theme]);
 
   return <ThemeContext value={value}>{children}</ThemeContext>;
 };
