@@ -3,6 +3,8 @@
 import { useEffect, useRef } from 'react';
 import { EaseInOutControlPoints } from '../../../../core/src';
 import { TextAnimate } from '@/src/ui';
+import { Link } from '../link';
+import { CodeBlockCommand } from '../code-block';
 
 export const LandingHero = () => {
   const logoIconRef = useRef(null);
@@ -12,7 +14,7 @@ export const LandingHero = () => {
   }, []);
 
   return (
-    <div className='mt-30 flex w-full flex-col items-center justify-center gap-9'>
+    <div className='mt-18 flex w-full flex-col items-center justify-center gap-5'>
       <EaseInOutControlPoints ref={logoIconRef} size={80} />
       <TextAnimate
         as='h1'
@@ -20,30 +22,16 @@ export const LandingHero = () => {
       >
         Static icons are so last decade
       </TextAnimate>
-      <p className='text-foreground max-w-3xl text-center text-base sm:text-lg'>
-        Open-source (MIT), buttery-smooth animated icons - drop them into any project and ship
-        faster. Feedback and contributions always welcome
+      <p className='text-foreground max-w-xl text-center text-base sm:text-lg'>
+        Open-source, buttery-smooth animated icons - drop them into any project and ship faster.
+        Feedback and contributions always welcome
       </p>
       <p className='flex items-center gap-1 text-lg font-semibold'>
         Crafted with
-        <a
-          href='https://motion.dev/'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-blue-500 underline'
-        >
-          Motion
-        </a>
-        &
-        <a
-          href='https://tabler.io/icons/'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-blue-500 underline'
-        >
-          Tabler
-        </a>
+        <Link href='https://motion.dev'>Motion</Link>&
+        <Link href='https://tabler.io/icons'>Tabler</Link>
       </p>
+      <CodeBlockCommand className='mt-4' />
     </div>
   );
 };
