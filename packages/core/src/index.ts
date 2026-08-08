@@ -1,5 +1,10 @@
 export { BellIcon } from './icons/bell';
 export { ContrastIcon } from './icons/contrast';
-export { EaseInOutControlPoints } from './icons/ease-in-out-control-points';
+export { EaseInOutControlPointsIcon } from './icons/ease-in-out-control-points';
 export { CopyIcon } from './icons/copy';
 export { CheckIcon } from './icons/check';
+export { BrandGithubIcon } from './icons/brand-github';
+export { StarIcon } from './icons/icon-star';
+export { SearchIcon } from './icons/search';
+export { ChevronLeft } from './icons/chevron-left';
+export { ChevronRight } from './icons/chevron-right';

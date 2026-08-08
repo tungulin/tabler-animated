@@ -4,6 +4,7 @@ import '@/styles/globals.css';
 import { cn } from '../src/lib/utils';
 import { ThemeProvider } from './_contexts/theme';
 import { TooltipProvider } from '@/src/ui';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -24,9 +25,11 @@ export default function RootLayout({
       className={cn('antialiased', fontMono.variable, 'font-sans', inter.variable)}
     >
       <body>
-        <ThemeProvider>
-          <TooltipProvider>{children}</TooltipProvider>
-        </ThemeProvider>
+        <NuqsAdapter>
+          <ThemeProvider>
+            <TooltipProvider>{children}</TooltipProvider>
+          </ThemeProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-export const CheckIcon = () => {
+export const ChevronRight = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -12,10 +12,10 @@ export const CheckIcon = () => {
       strokeWidth={2}
       strokeLinecap='round'
       strokeLinejoin='round'
-      className='icon icon-tabler icons-tabler-outline icon-tabler-check'
+      className='icon icon-tabler icons-tabler-outline icon-tabler-chevron-right'
     >
       <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-      <path d='M5 12l5 5l10 -10' />
+      <path d='M9 6l6 6l-6 6' />
     </svg>
   );
 };

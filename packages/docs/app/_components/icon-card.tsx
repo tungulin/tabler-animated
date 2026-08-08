@@ -1,21 +1,28 @@
 'use client';
 
-import { Card } from '@/src/ui';
-import { BellIcon } from '../../../core/src';
 import { useRef } from 'react';
+import { Card } from '@/src/ui';
 import { useHover } from '@siberiacancode/reactuse';
+import type { IconComponent, IconHandle } from '../../../core/src/types';
 
-export const IconCard = () => {
-  const iconRef = useRef(null);
+interface Props {
+  name: string;
+  icon: IconComponent;
+}
 
-  const hovering = useHover<HTMLSpanElement>(() => {
-    iconRef.current.startAnimation();
+export const IconCard = (props: Props) => {
+  const iconRef = useRef<IconHandle>(null);
+
+  const hovering = useHover<HTMLDivElement>(() => {
+    iconRef.current?.startAnimation();
   });
+
+  const Icon = props.icon;
 
   return (
     <Card ref={hovering.ref} className='flex flex-col items-center gap-5 px-5 py-6'>
-      <BellIcon ref={iconRef} />
-      <small className='text-sm leading-none font-medium'> a-arrow-down</small>
+      <Icon size={30} ref={iconRef} />
+      <small className='text-sm leading-none font-medium'>{props.name}</small>
     </Card>
   );
 };

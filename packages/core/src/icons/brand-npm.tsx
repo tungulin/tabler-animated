@@ -1,6 +1,6 @@
 'use client';
 
-export const CheckIcon = () => {
+export const BrandNpmIcon = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -12,10 +12,16 @@ export const CheckIcon = () => {
       strokeWidth={2}
       strokeLinecap='round'
       strokeLinejoin='round'
-      className='icon icon-tabler icons-tabler-outline icon-tabler-check'
+      className='icon icon-tabler icons-tabler-outline icon-tabler-brand-npm'
     >
       <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-      <path d='M5 12l5 5l10 -10' />
+      <path d='M1 8h22v7h-12v2h-4v-2h-6l0 -7' />
+      <path d='M7 8v7' />
+      <path d='M14 8v7' />
+      <path d='M17 11v4' />
+      <path d='M4 11v4' />
+      <path d='M11 11v1' />
+      <path d='M20 11v4' />
     </svg>
   );
 };

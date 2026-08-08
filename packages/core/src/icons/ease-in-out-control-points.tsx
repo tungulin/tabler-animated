@@ -61,7 +61,7 @@ const CIRCLE_VARIANTS: Variants = {
   }
 };
 
-const EaseInOutControlPoints = forwardRef<IconHandle, IconProps>(
+const EaseInOutControlPointsIcon = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -141,6 +141,6 @@ const EaseInOutControlPoints = forwardRef<IconHandle, IconProps>(
   }
 );
 
-EaseInOutControlPoints.displayName = 'EaseInOutControlPoints';
+EaseInOutControlPointsIcon.displayName = 'EaseInOutControlPoints';
 
-export { EaseInOutControlPoints };
+export { EaseInOutControlPointsIcon };

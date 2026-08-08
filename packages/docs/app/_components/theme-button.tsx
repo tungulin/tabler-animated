@@ -14,8 +14,8 @@ export const ThemeButton = (props: ThemeButtonProps) => {
   const onThemeClick = () => theme.set(theme.value === 'dark' ? 'light' : 'dark');
 
   return (
-    <Button className='rounded-full' size='icon' variant='ghost' onClick={onThemeClick} {...props}>
-      <ContrastIcon size={28} />
+    <Button className='rounded-xl' variant='ghost' size='icon-sm' onClick={onThemeClick} {...props}>
+      <ContrastIcon />
       <span className='sr-only'>Toggle theme</span>
     </Button>
   );
