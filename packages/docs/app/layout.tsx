@@ -1,10 +1,14 @@
 import { Geist_Mono, Inter } from 'next/font/google';
 
-import '@/styles/globals.css';
 import { cn } from '../src/lib/utils';
-import { ThemeProvider } from './_contexts/theme';
+import { ThemeProvider, ThemeScript } from './_contexts/theme';
 import { TooltipProvider } from '@/src/ui';
+import { COOKIES } from '@/src/constants';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
+import Script from 'next/script';
+import { PropsWithChildren } from 'react';
+
+import '@/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -13,17 +17,16 @@ const fontMono = Geist_Mono({
   variable: '--font-mono'
 });
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       lang='en'
       suppressHydrationWarning
       className={cn('antialiased', fontMono.variable, 'font-sans', inter.variable)}
     >
+      <head>
+        <ThemeScript />
+      </head>
       <body>
         <NuqsAdapter>
           <ThemeProvider>

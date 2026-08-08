@@ -24,9 +24,7 @@ export default async function Page({ searchParams }: PageProps) {
 
   const offset = (page - 1) * LIMIT;
   const items = matched.slice(offset, offset + LIMIT);
-
-  // hasMore: offset + items.length < matched.length
-  // total: matched.length
+  const pageCount = Math.ceil(matched.length / LIMIT);
 
   return (
     <div>
@@ -34,13 +32,13 @@ export default async function Page({ searchParams }: PageProps) {
       <LandingHero />
       <div className='mt-10 px-20'>
         <IconSearchInput totalCount={ICON_LIST.length} />
-        <div className='grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-1.5'>
+        <div className='grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-1.5'>
           {items.map((icon) => (
             <IconCard key={icon.name} icon={icon.component} name={icon.name} />
           ))}
         </div>
       </div>
-      <IconPagination />
+      <IconPagination pageCount={pageCount} />
       <LandingFooter />
     </div>
   );
