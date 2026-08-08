@@ -21,7 +21,7 @@ export const IconCard = (props: Props) => {
 
   return (
     <Card ref={hovering.ref} className='flex flex-col items-center gap-5 px-5 pt-6 pb-3'>
-      <Icon size={30} ref={iconRef} />
+      <Icon size={34} ref={iconRef} />
       <small className='text-sm leading-none font-medium'>{props.name}</small>
       <div className='mt-5 flex gap-2'>
         <Button variant='secondary'>T</Button>

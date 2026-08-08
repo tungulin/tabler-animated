@@ -7,6 +7,7 @@ import { SearchParams } from 'nuqs/server';
 import { ICON_LIST } from '@/generated/icons';
 import { loadIconSearchParams } from './search-params';
 import { IconPagination } from '../_components/icon-pagination';
+import { GridVignetteBackground } from '@/src/ui';
 
 type PageProps = {
   searchParams: Promise<SearchParams>;
@@ -29,10 +30,20 @@ export default async function Page({ searchParams }: PageProps) {
   return (
     <div>
       <LandingHeader />
-      <LandingHero />
+      <div className='relative pt-10'>
+        <LandingHero />
+        <GridVignetteBackground
+          x={50}
+          y={70}
+          intensity={100}
+          horizontalVignetteSize={30}
+          verticalVignetteSize={70}
+        />
+      </div>
+
       <div className='mt-10 px-20'>
         <IconSearchInput totalCount={ICON_LIST.length} />
-        <div className='grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-1.5'>
+        <div className='grid grid-cols-[repeat(auto-fill,minmax(170px,1fr))] gap-1.5'>
           {items.map((icon) => (
             <IconCard key={icon.name} icon={icon.component} name={icon.name} />
           ))}
