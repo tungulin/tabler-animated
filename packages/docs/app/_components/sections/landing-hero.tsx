@@ -21,15 +21,15 @@ export const LandingHero = () => {
       </Card>
       <TextAnimate
         as='h1'
-        className='max-w-4xl text-3xl font-semibold tracking-tight text-balance lg:leading-[1.1] lg:font-semibold xl:text-4xl xl:tracking-tighter'
+        className='max-w-4xl text-xl font-semibold tracking-tight text-balance sm:text-3xl lg:leading-[1.1] lg:font-semibold xl:text-4xl xl:tracking-tighter'
       >
         Static icons are so last decade
       </TextAnimate>
-      <p className='text-foreground max-w-xl text-center text-base sm:text-lg'>
+      <p className='text-foreground sm:text-md max-w-xl px-3 text-center text-base'>
         Open-source, buttery-smooth animated icons - drop them into any project and ship faster.
         Feedback and contributions always welcome
       </p>
-      <p className='flex items-center gap-1 text-lg font-semibold'>
+      <p className='flex items-center gap-1 text-base font-semibold sm:text-lg'>
         Crafted with
         <Link href='https://motion.dev'>Motion</Link>&
         <Link href='https://tabler.io/icons'>Tabler</Link>
