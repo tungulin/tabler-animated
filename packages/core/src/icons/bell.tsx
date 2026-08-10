@@ -10,7 +10,7 @@ const SVG_VARIANTS: Variants = {
   animate: { rotate: [0, -10, 10, -10, 0] }
 };
 
-const BellIcon = forwardRef<IconHandle, IconProps>(
+const IconBell = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -74,6 +74,6 @@ const BellIcon = forwardRef<IconHandle, IconProps>(
   }
 );
 
-BellIcon.displayName = 'BellIcon';
+IconBell.displayName = 'IconBell';
 
-export { BellIcon };
+export { IconBell };

@@ -4,7 +4,7 @@ import { useQueryStates } from 'nuqs';
 
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/src/ui/input-group';
 import { Field } from '@/src/ui/field';
-import { SearchIcon } from '../../../core/src';
+import { IconSearch } from '../../../core/src';
 import { iconSearchParams } from '../(root)/search-params';
 import { useHotkeys } from '@siberiacancode/reactuse';
 import { useRef } from 'react';
@@ -34,7 +34,7 @@ export const IconSearchInput = ({ totalCount }: IconSearchInputProps) => {
           onChange={(e) => setParams({ search: e.target.value, page: 1 })}
         />
         <InputGroupAddon align='inline-start'>
-          <SearchIcon />
+          <IconSearch />
         </InputGroupAddon>
       </InputGroup>
     </Field>

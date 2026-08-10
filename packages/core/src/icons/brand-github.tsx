@@ -47,7 +47,7 @@ const TAIL_VARIANTS: Variants = {
   }
 };
 
-const BrandGithubIcon = forwardRef<IconHandle, IconProps>(
+const IconBrandGithub = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const bodyControls = useAnimation();
     const tailControls = useAnimation();
@@ -127,6 +127,6 @@ const BrandGithubIcon = forwardRef<IconHandle, IconProps>(
   }
 );
 
-BrandGithubIcon.displayName = 'BrandGithubIcon';
+IconBrandGithub.displayName = 'IconBrandGithub';
 
-export { BrandGithubIcon };
+export { IconBrandGithub };

@@ -4,7 +4,7 @@ import type { ComponentProps, MouseEvent } from 'react';
 
 import { useTheme } from '@/app/_contexts/theme';
 import { Button } from '@/src/ui';
-import { ContrastIcon } from '../../../core/src';
+import { IconContrast } from '../../../core/src';
 
 type ThemeButtonProps = ComponentProps<typeof Button>;
 
@@ -15,7 +15,7 @@ export const ThemeButton = (props: ThemeButtonProps) => {
 
   return (
     <Button className='rounded-xl' variant='ghost' size='sm' onClick={onThemeClick} {...props}>
-      <ContrastIcon />
+      <IconContrast />
     </Button>
   );
 };

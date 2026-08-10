@@ -11,7 +11,7 @@ import {
   TooltipTrigger
 } from '@/src/ui';
 import { useCopy, useLocalStorage } from '@siberiacancode/reactuse';
-import { CheckIcon, CopyIcon } from '../../../core/src';
+import { IconCheck, IconCopy } from '../../../core/src';
 import { LOCAL_STORAGE } from '@/src/constants';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
@@ -79,7 +79,7 @@ export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
                       onClick={() => copy('test')}
                     >
                       <span className='sr-only'>Copy</span>
-                      {copied ? <CheckIcon /> : <CopyIcon />}
+                      {copied ? <IconCheck /> : <IconCopy />}
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>{copied ? 'Copied' : 'Copy to Clipboard'}</TooltipContent>

@@ -1,7 +1,7 @@
 import { ThemeButton } from '../theme-button';
 import { Button } from '@/src/ui';
 import { LINKS } from '@/src/constants';
-import { BrandGithubIcon } from '../../../../core/src';
+import { IconBrandGithub } from '../../../../core/src';
 import Link from 'next/link';
 
 export const LandingHeader = () => {
@@ -11,7 +11,7 @@ export const LandingHeader = () => {
       <div className='bg-background/70 supports-[backdrop-filter]:bg-background/60 border-border/70 flex items-center gap-0.5 rounded-xl border backdrop-blur'>
         <Button asChild size='sm' className='rounded-xl' variant='ghost'>
           <Link href={LINKS.REPOSITORY} target='_blank' rel='noopener noreferrer'>
-            <BrandGithubIcon />
+            <IconBrandGithub />
           </Link>
         </Button>
         <ThemeButton />

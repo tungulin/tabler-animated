@@ -27,7 +27,7 @@ const PATH_VARIANTS: Variants = {
   }
 };
 
-const CheckIcon = forwardRef<IconHandle, IconProps>(
+const IconCheck = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -88,6 +88,6 @@ const CheckIcon = forwardRef<IconHandle, IconProps>(
   }
 );
 
-CheckIcon.displayName = 'CheckIcon';
+IconCheck.displayName = 'IconCheck';
 
-export { CheckIcon };
+export { IconCheck };

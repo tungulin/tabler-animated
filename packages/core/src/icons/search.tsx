@@ -14,7 +14,7 @@ const SVG_VARIANTS: Variants = {
   }
 };
 
-const SearchIcon = forwardRef<IconHandle, IconProps>(
+const IconSearch = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -75,6 +75,6 @@ const SearchIcon = forwardRef<IconHandle, IconProps>(
   }
 );
 
-SearchIcon.displayName = 'SearchIcon';
+IconSearch.displayName = 'IconSearch';
 
-export { SearchIcon };
+export { IconSearch };

@@ -19,7 +19,7 @@ const PATH_VARIANT: Variants = {
   }
 };
 
-const ContrastIcon = forwardRef<IconHandle, IconProps>(
+const IconContrast = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -81,6 +81,6 @@ const ContrastIcon = forwardRef<IconHandle, IconProps>(
   }
 );
 
-ContrastIcon.displayName = 'ContrastIcon';
+IconContrast.displayName = 'IconContrast';
 
-export { ContrastIcon };
+export { IconContrast };

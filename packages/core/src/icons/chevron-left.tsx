@@ -16,7 +16,7 @@ const PATH_VARIANTS: Variants = {
   animate: { x: [0, -2, 0] }
 };
 
-const ChevronLeft = forwardRef<IconHandle, IconProps>(
+const IconChevronLeft = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -78,6 +78,6 @@ const ChevronLeft = forwardRef<IconHandle, IconProps>(
   }
 );
 
-ChevronLeft.displayName = 'ChevronLeft';
+IconChevronLeft.displayName = 'IconChevronLeft';
 
-export { ChevronLeft };
+export { IconChevronLeft };

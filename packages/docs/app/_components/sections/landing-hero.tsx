@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { EaseInOutControlPointsIcon } from '../../../../core/src';
+import { IconEaseInOutControlPoints } from '../../../../core/src';
 import { BorderBeam, Card, TextAnimate } from '@/src/ui';
 import { Link } from '../link';
 import { CodeBlockCommand } from '../code-block';
@@ -16,7 +16,7 @@ export const LandingHero = () => {
   return (
     <div className='mt-18 flex w-full flex-col items-center justify-center gap-5'>
       <Card className='relative overflow-hidden p-4'>
-        <EaseInOutControlPointsIcon ref={logoIconRef} size={80} />
+        <IconEaseInOutControlPoints ref={logoIconRef} size={80} />
         <BorderBeam duration={6} size={100} />
       </Card>
       <TextAnimate

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ChevronLeft, ChevronRight } from '../../../core/src';
+import { IconChevronLeft, IconChevronRight } from '../../../core/src';
 
 import { cn } from '@/src/lib/utils';
 import { ButtonProps, buttonVariants } from '@/src/ui/button';
@@ -57,7 +57,7 @@ const PaginationPrevious = ({
     className={cn('gap-1 pl-2.5', className)}
     {...props}
   >
-    <ChevronLeft />
+    <IconChevronLeft />
     <span>Previous</span>
   </PaginationLink>
 );
@@ -71,7 +71,7 @@ const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof Pag
     {...props}
   >
     <span>Next</span>
-    <ChevronRight />
+    <IconChevronRight />
   </PaginationLink>
 );
 PaginationNext.displayName = 'PaginationNext';
