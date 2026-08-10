@@ -28,7 +28,7 @@ export const IconCard = (props: Props) => {
       onMouseLeave={handleMouseLeave}
       className='flex flex-col items-center gap-5 px-5 pt-6 pb-3'
     >
-      <Icon size={34} ref={iconRef} />
+      <Icon size={38} ref={iconRef} />
       <small className='text-sm leading-none font-medium'>{props.name}</small>
     </Card>
   );

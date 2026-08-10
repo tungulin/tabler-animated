@@ -13,7 +13,7 @@ type PageProps = {
   searchParams: Promise<SearchParams>;
 };
 
-const LIMIT = 15;
+const LIMIT = 60;
 
 export default async function Page({ searchParams }: PageProps) {
   const query = await loadIconSearchParams(searchParams);

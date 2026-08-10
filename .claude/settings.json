@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:tabler.io)"
+      "WebFetch(domain:tabler.io)",
+      "WebFetch(domain:lucide-animated.com)"
     ]
   }
 }
