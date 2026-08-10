@@ -14,8 +14,11 @@ import { useCopy, useLocalStorage } from '@siberiacancode/reactuse';
 import { CheckIcon, CopyIcon } from '../../../core/src';
 import { LOCAL_STORAGE } from '@/src/constants';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 
 type PackageManager = 'bun' | 'npm' | 'pnpm' | 'yarn';
+
+const DEFAULT_PACKAGE_MANAGER: PackageManager = 'pnpm';
 
 const TABS: PackageManager[] = ['pnpm', 'npm', 'yarn', 'bun'];
 
@@ -32,9 +35,17 @@ interface CodeBlockCommandProps {
 
 export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
   const { copy, copied } = useCopy();
-  const packageManagerLocalStorage = useLocalStorage(LOCAL_STORAGE.package, 'pnpm');
+  const packageManagerLocalStorage = useLocalStorage<PackageManager>(
+    LOCAL_STORAGE.package,
+    DEFAULT_PACKAGE_MANAGER
+  );
+  const [mounted, setMounted] = useState(false);
 
-  const packageManager = packageManagerLocalStorage.value;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const packageManager = mounted ? packageManagerLocalStorage.value : DEFAULT_PACKAGE_MANAGER;
 
   return (
     <div className={clsx('flex w-full items-center justify-center px-3', props.className)}>
@@ -43,7 +54,7 @@ export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
           <Tabs
             value={packageManager}
             className='gap-0'
-            onValueChange={(value) => packageManagerLocalStorage.set(value)}
+            onValueChange={(value) => packageManagerLocalStorage.set(value as PackageManager)}
           >
             <div className='border-border/50 flex items-center gap-2 border-b px-3 py-1'>
               <TabsList className='flex w-full justify-between rounded-none bg-transparent p-0'>
