@@ -9,3 +9,5 @@ allowBuilds:
   msw: false
   esbuild: true
   core-js: false
+minimumReleaseAgeExclude:
+  - tabler-animated@1.0.0
