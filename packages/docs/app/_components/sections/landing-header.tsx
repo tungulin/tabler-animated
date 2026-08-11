@@ -1,7 +1,7 @@
 import { ThemeButton } from '../theme-button';
 import { Button } from '@/src/ui';
 import { LINKS } from '@/src/constants';
-import { IconBrandGithub } from 'tabler-animated-icons';
+import { IconBrandGithub } from 'tabler-animated';
 import Link from 'next/link';
 
 export const LandingHeader = () => {

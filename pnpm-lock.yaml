@@ -132,7 +132,7 @@ importers:
       shadcn:
         specifier: ^4.16.1
         version: 4.16.1(supports-color@7.2.0)(typescript@5.9.3)
-      tabler-animated-icons:
+      tabler-animated:
         specifier: workspace:*
         version: link:../core
       tailwind-merge:

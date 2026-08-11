@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { IconEaseInOutControlPoints } from 'tabler-animated-icons';
+import { IconEaseInOutControlPoints } from 'tabler-animated';
 import { BorderBeam, Card, TextAnimate } from '@/src/ui';
 import { Link } from '../link';
 import { CodeBlockCommand } from '../code-block';
