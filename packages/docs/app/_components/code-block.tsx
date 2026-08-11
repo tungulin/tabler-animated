@@ -10,14 +10,14 @@ import {
   TooltipContent,
   TooltipTrigger
 } from '@/src/ui';
-import { useCookie, useCopy, useLocalStorage } from '@siberiacancode/reactuse';
+import { useCookie, useCopy } from '@siberiacancode/reactuse';
 import { IconCheck, IconCopy } from 'tabler-animated';
 import { COOKIES } from '@/src/constants';
 import clsx from 'clsx';
 
-type PackageManager = 'bun' | 'npm' | 'pnpm' | 'yarn';
+export type PackageManager = 'bun' | 'npm' | 'pnpm' | 'yarn';
 
-const DEFAULT_PACKAGE_MANAGER: PackageManager = 'pnpm';
+export const DEFAULT_PACKAGE_MANAGER: PackageManager = 'pnpm';
 
 const TABS: PackageManager[] = ['pnpm', 'npm', 'yarn', 'bun'];
 
@@ -30,13 +30,14 @@ const COMMANDS: Record<PackageManager, string> = {
 
 interface CodeBlockCommandProps {
   className?: string;
+  initialPackageManager?: PackageManager;
 }
 
 export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
   const { copy, copied } = useCopy();
 
   const packageManagerCookie = useCookie(COOKIES.PACKAGE, {
-    initialValue: DEFAULT_PACKAGE_MANAGER,
+    initialValue: props.initialPackageManager ?? DEFAULT_PACKAGE_MANAGER,
     path: '/'
   });
 

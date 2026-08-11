@@ -8,6 +8,9 @@ import { ICON_LIST } from '@/generated/icons';
 import { loadIconSearchParams } from './search-params';
 import { IconPagination } from '../_components/icon-pagination';
 import { GridVignetteBackground } from '@/src/ui';
+import { cookies } from 'next/headers';
+import { COOKIES } from '@/src/constants';
+import type { PackageManager } from '../_components/code-block';
 
 type PageProps = {
   searchParams: Promise<SearchParams>;
@@ -15,8 +18,20 @@ type PageProps = {
 
 const LIMIT = 60;
 
+const PACKAGE_MANAGERS: PackageManager[] = ['pnpm', 'npm', 'yarn', 'bun'];
+
+const isPackageManager = (value: string | undefined): value is PackageManager =>
+  PACKAGE_MANAGERS.includes(value as PackageManager);
+
 export default async function Page({ searchParams }: PageProps) {
   const query = await loadIconSearchParams(searchParams);
+
+  const cookieStore = await cookies();
+
+  const packageManagerCookie = cookieStore.get(COOKIES.PACKAGE)?.value;
+  const initialPackageManager = isPackageManager(packageManagerCookie)
+    ? packageManagerCookie
+    : undefined;
 
   const page = query.page;
   const search = query.search.trim().toLowerCase();
@@ -31,7 +46,7 @@ export default async function Page({ searchParams }: PageProps) {
     <div>
       <LandingHeader />
       <div className='relative pt-10'>
-        <LandingHero />
+        <LandingHero initialPackageManager={initialPackageManager} />
         <GridVignetteBackground
           x={50}
           y={70}

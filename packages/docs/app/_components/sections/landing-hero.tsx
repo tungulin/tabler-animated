@@ -4,9 +4,13 @@ import { useEffect, useRef } from 'react';
 import { IconEaseInOutControlPoints } from 'tabler-animated';
 import { BorderBeam, Card, TextAnimate } from '@/src/ui';
 import { Link } from '../link';
-import { CodeBlockCommand } from '../code-block';
+import { CodeBlockCommand, type PackageManager } from '../code-block';
 
-export const LandingHero = () => {
+interface LandingHeroProps {
+  initialPackageManager?: PackageManager;
+}
+
+export const LandingHero = ({ initialPackageManager }: LandingHeroProps) => {
   const logoIconRef = useRef(null);
 
   useEffect(() => {
@@ -34,7 +38,7 @@ export const LandingHero = () => {
         <Link href='https://motion.dev'>Motion</Link>&
         <Link href='https://tabler.io/icons'>Tabler</Link>
       </p>
-      <CodeBlockCommand className='mt-4' />
+      <CodeBlockCommand className='mt-4' initialPackageManager={initialPackageManager} />
     </div>
   );
 };
