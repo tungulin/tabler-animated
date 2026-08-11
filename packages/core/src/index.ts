@@ -1,4 +1,4 @@
-export * from './types';
+export { type IconHandle, type IconComponent, type IconProps } from './types';
 
 export { IconBell } from './icons/bell';
 export { IconContrast } from './icons/contrast';
