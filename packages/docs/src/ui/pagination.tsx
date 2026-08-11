@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IconChevronLeft, IconChevronRight } from '../../../core/src';
+import { IconChevronLeft, IconChevronRight } from 'tabler-animated-icons';
 
 import { cn } from '@/src/lib/utils';
 import { ButtonProps, buttonVariants } from '@/src/ui/button';

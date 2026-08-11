@@ -33,7 +33,6 @@
   },
   "scripts": {
     "build": "shx rm -rf dist && vite build",
-    "build:js": "tsc --project tsconfig.build.json && pnpm prettier --write src/bundle",
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {

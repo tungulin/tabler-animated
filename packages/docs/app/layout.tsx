@@ -3,9 +3,7 @@ import { Geist_Mono, Inter } from 'next/font/google';
 import { cn } from '../src/lib/utils';
 import { ThemeProvider, ThemeScript } from './_contexts/theme';
 import { TooltipProvider } from '@/src/ui';
-import { COOKIES } from '@/src/constants';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
-import Script from 'next/script';
 import { PropsWithChildren } from 'react';
 
 import '@/styles/globals.css';

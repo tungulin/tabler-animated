@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { Card } from '@/src/ui';
-import type { IconComponent, IconHandle } from '../../../core/src/types';
+import type { IconComponent, IconHandle } from 'tabler-animated-icons';
 
 interface Props {
   name: string;

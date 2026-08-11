@@ -6,7 +6,7 @@ export const ROOT_PATH = path.resolve(path.resolve(), '../');
 
 const CORE_ICONS_DIR = path.join(ROOT_PATH, 'core/src/icons');
 const CORE_INDEX_FILE = path.join(ROOT_PATH, 'core/src/index.ts');
-const CORE_IMPORT_PATH = '../../core/src';
+const CORE_IMPORT_PATH = 'tabler-animated-icons';
 
 const OUTPUT_DIR = path.join(ROOT_PATH, 'docs/generated');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'icons.tsx');

@@ -4,7 +4,7 @@ import { useQueryStates } from 'nuqs';
 
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/src/ui/input-group';
 import { Field } from '@/src/ui/field';
-import { IconSearch } from '../../../core/src';
+import { IconSearch } from 'tabler-animated-icons';
 import { iconSearchParams } from '../(root)/search-params';
 import { useHotkeys } from '@siberiacancode/reactuse';
 import { useRef } from 'react';

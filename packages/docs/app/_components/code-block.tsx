@@ -11,7 +11,7 @@ import {
   TooltipTrigger
 } from '@/src/ui';
 import { useCopy, useLocalStorage } from '@siberiacancode/reactuse';
-import { IconCheck, IconCopy } from '../../../core/src';
+import { IconCheck, IconCopy } from 'tabler-animated-icons';
 import { LOCAL_STORAGE } from '@/src/constants';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';

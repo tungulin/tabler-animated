@@ -4,7 +4,7 @@ import type { ComponentProps, MouseEvent } from 'react';
 
 import { useTheme } from '@/app/_contexts/theme';
 import { Button } from '@/src/ui';
-import { IconContrast } from '../../../core/src';
+import { IconContrast } from 'tabler-animated-icons';
 
 type ThemeButtonProps = ComponentProps<typeof Button>;
 

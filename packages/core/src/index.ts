@@ -1,3 +1,5 @@
+export * from './types';
+
 export { IconBell } from './icons/bell';
 export { IconContrast } from './icons/contrast';
 export { IconEaseInOutControlPoints } from './icons/ease-in-out-control-points';
