@@ -10,11 +10,10 @@ import {
   TooltipContent,
   TooltipTrigger
 } from '@/src/ui';
-import { useCopy, useLocalStorage } from '@siberiacancode/reactuse';
+import { useCookie, useCopy, useLocalStorage } from '@siberiacancode/reactuse';
 import { IconCheck, IconCopy } from 'tabler-animated';
-import { LOCAL_STORAGE } from '@/src/constants';
+import { COOKIES } from '@/src/constants';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 
 type PackageManager = 'bun' | 'npm' | 'pnpm' | 'yarn';
 
@@ -35,17 +34,15 @@ interface CodeBlockCommandProps {
 
 export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
   const { copy, copied } = useCopy();
-  const packageManagerLocalStorage = useLocalStorage<PackageManager>(
-    LOCAL_STORAGE.package,
-    DEFAULT_PACKAGE_MANAGER
-  );
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const packageManagerCookie = useCookie(COOKIES.PACKAGE, {
+    initialValue: DEFAULT_PACKAGE_MANAGER,
+    path: '/'
+  });
 
-  const packageManager = mounted ? packageManagerLocalStorage.value : DEFAULT_PACKAGE_MANAGER;
+  const packageManager = packageManagerCookie.value;
+
+  const npmTextForCopy = COMMANDS[packageManager] + ' ' + 'tabler-animated';
 
   return (
     <div className={clsx('flex w-full items-center justify-center px-3', props.className)}>
@@ -54,7 +51,7 @@ export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
           <Tabs
             value={packageManager}
             className='gap-0'
-            onValueChange={(value) => packageManagerLocalStorage.set(value as PackageManager)}
+            onValueChange={(value) => packageManagerCookie.set(value as PackageManager)}
           >
             <div className='border-border/50 flex items-center gap-2 border-b px-3 py-1'>
               <TabsList className='flex w-full justify-between rounded-none bg-transparent p-0'>
@@ -76,7 +73,7 @@ export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
                       size='icon'
                       variant='ghost'
                       className='ml-5 size-7 opacity-70 hover:opacity-100 focus-visible:opacity-100'
-                      onClick={() => copy('test')}
+                      onClick={() => copy(npmTextForCopy)}
                     >
                       <span className='sr-only'>Copy</span>
                       {copied ? <IconCheck /> : <IconCopy />}
@@ -94,7 +91,7 @@ export const CodeBlockCommand = (props: CodeBlockCommandProps) => {
                       className='text-code-foreground relative font-mono text-sm leading-none'
                       data-language='bash'
                     >
-                      {COMMANDS[_package]}
+                      {COMMANDS[_package] + ' ' + 'tabler-animated'}
                     </code>
                   </pre>
                 </TabsContent>
