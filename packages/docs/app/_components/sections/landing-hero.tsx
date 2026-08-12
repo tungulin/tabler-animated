@@ -27,7 +27,7 @@ export const LandingHero = ({ initialPackageManager }: LandingHeroProps) => {
         as='h1'
         className='max-w-4xl text-xl font-semibold tracking-tight text-balance sm:text-3xl lg:leading-[1.1] lg:font-semibold xl:text-4xl xl:tracking-tighter'
       >
-        Static icons are so last decade
+        Icons, but alive
       </TextAnimate>
       <p className='text-foreground sm:text-md max-w-xl px-3 text-center text-base'>
         Open-source, buttery-smooth animated icons - drop them into any project and ship faster.

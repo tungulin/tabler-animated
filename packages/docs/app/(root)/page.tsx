@@ -11,6 +11,7 @@ import { GridVignetteBackground } from '@/src/ui';
 import { cookies } from 'next/headers';
 import { COOKIES } from '@/src/constants';
 import type { PackageManager } from '../_components/code-block';
+import { LandingEmpty } from '../_components/sections/landing-empty';
 
 type PageProps = {
   searchParams: Promise<SearchParams>;
@@ -57,6 +58,7 @@ export default async function Page({ searchParams }: PageProps) {
       </div>
       <div className='mt-5 px-3 md:mt-10 lg:px-20'>
         <IconSearchInput totalCount={ICON_LIST.length} />
+        {!items.length && <LandingEmpty />}
         <div className='grid grid-cols-[repeat(auto-fill,minmax(170px,1fr))] gap-1.5'>
           {items.map((icon) => (
             <IconCard key={icon.name} icon={icon.component} name={icon.name} />

@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky",
-    "lint-staged": "pnpm --recursive run lint-staged"
+    "lint-staged": "pnpm --recursive --workspace-concurrency=1 run lint-staged"
   },
   "devDependencies": {
     "@siberiacancode/eslint": "2.17.6",
