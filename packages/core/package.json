@@ -10,7 +10,7 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/index.d.mts",
+        "types": "./dist/types/index.d.ts",
         "default": "./dist/esm/index.mjs"
       },
       "require": {
@@ -33,6 +33,7 @@
   },
   "scripts": {
     "build": "shx rm -rf dist && vite build",
+    "dev": "vite build --watch",
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
