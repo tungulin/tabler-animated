@@ -61,7 +61,7 @@ export default async function Page({ searchParams }: PageProps) {
         {!items.length && <LandingEmpty />}
         <div className='grid grid-cols-[repeat(auto-fill,minmax(170px,1fr))] gap-1.5'>
           {items.map((icon) => (
-            <IconCard key={icon.name} icon={icon.component} name={icon.name} />
+            <IconCard key={icon.name} icon={icon.component} name={icon.name} source={icon.source} />
           ))}
         </div>
       </div>
