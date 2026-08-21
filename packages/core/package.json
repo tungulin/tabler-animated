@@ -1,11 +1,26 @@
 {
   "name": "tabler-animated",
-  "version": "1.0.1",
+  "version": "1.0.11",
   "license": "MIT",
   "keywords": [
     "icons",
     "react icons",
-    "animated icons"
+    "animated icons",
+    "svg icons",
+    "svg",
+    "icon library",
+    "icon set",
+    "tabler",
+    "tabler icons",
+    "motion",
+    "framer-motion",
+    "react",
+    "typescript",
+    "ui",
+    "ui components",
+    "hover animation",
+    "interactive icons",
+    "nextjs"
   ],
   "exports": {
     ".": {
