@@ -5,3 +5,6 @@ export * from './tabs';
 export * from './tooltip';
 export * from './border-beam';
 export * from './grid-vignette-background';
+export * from './input-group';
+export * from './field';
+export * from './pagination';

@@ -2,8 +2,7 @@
 
 import { useQueryStates } from 'nuqs';
 
-import { InputGroup, InputGroupAddon, InputGroupInput } from '@/src/ui/input-group';
-import { Field } from '@/src/ui/field';
+import { InputGroup, InputGroupAddon, InputGroupInput, Field } from '@/src/ui';
 import { IconSearch } from 'tabler-animated';
 import { iconSearchParams } from '../(root)/search-params';
 import { useHotkeys } from '@siberiacancode/reactuse';
@@ -26,7 +25,7 @@ export const IconSearchInput = ({ totalCount }: IconSearchInputProps) => {
 
   return (
     <Field className='mb-5'>
-      <InputGroup className='h-[44px]'>
+      <InputGroup className='h-[44px] rounded-xl'>
         <InputGroupInput
           ref={inputRef}
           placeholder={`Search ${totalCount} outline icons`}

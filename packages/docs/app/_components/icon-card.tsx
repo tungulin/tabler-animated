@@ -13,15 +13,14 @@ interface Props {
 
 export const IconCard = (props: Props) => {
   const iconRef = useRef<IconHandle>(null);
+  const copyIconRef = useRef<IconHandle>(null);
   const { copy, copied } = useCopy();
 
-  const handleMouseEnter = () => {
-    iconRef.current?.startAnimation();
-  };
+  const handleMouseEnter = () => iconRef.current?.startAnimation();
+  const handleMouseLeave = () => iconRef.current?.stopAnimation();
 
-  const handleMouseLeave = () => {
-    iconRef.current?.stopAnimation();
-  };
+  const handleMouseEnterCopy = () => copyIconRef.current?.startAnimation();
+  const handleMouseLeaveCopy = () => copyIconRef.current?.stopAnimation();
 
   const Icon = props.icon;
 
@@ -35,12 +34,28 @@ export const IconCard = (props: Props) => {
       <small className='min-h-[28px] text-sm leading-none font-medium'>{props.name}</small>
       <Tooltip delayDuration={150}>
         <TooltipTrigger asChild>
-          <Button variant='secondary' onClick={() => copy(props.source)}>
-            {copied ? <IconCheck /> : <IconCopy />}
+          <Button
+            onMouseEnter={handleMouseEnterCopy}
+            onMouseLeave={handleMouseLeaveCopy}
+            variant='secondary'
+            onClick={() => copy(props.source)}
+          >
+            {copied ? <IconCheck /> : <IconCopy ref={copyIconRef} />}
           </Button>
         </TooltipTrigger>
-        <TooltipContent className='bg-secondary text-primary' side='bottom'>
-          <p>{copied ? 'Copied' : 'Copy tsx code'}</p>
+        <TooltipContent className='bg-primary' side='bottom'>
+          <small className='min-h-[28px] text-xs leading-none font-medium'>
+            {copied && 'Copied'}
+            {!copied && (
+              <div>
+                Copy
+                <code className='bg-muted text-primary mx-1 rounded-md px-1 py-0.5 font-mono font-semibold'>
+                  .tsx
+                </code>
+                code
+              </div>
+            )}
+          </small>
         </TooltipContent>
       </Tooltip>
     </Card>

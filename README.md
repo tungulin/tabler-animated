@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="packages/docs/public/logo-fill.png" alt="tabler-animated logo" width="120" />
+  <img src="packages/docs/public/logo-fill.png" alt="tabler-animated logo" width="125" />
 </div>
 
 <h1 align="center">tabler-animated</h1>

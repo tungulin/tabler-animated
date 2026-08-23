@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/src/ui';
 import {
+  Button,
   Tabs,
   TabsContent,
   TabsList,

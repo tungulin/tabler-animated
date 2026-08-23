@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/tungulin/tabler-animated/main/packages/docs/public/logo-fill.png" alt="tabler-animated logo" width="120" />
+  <img src="https://raw.githubusercontent.com/tungulin/tabler-animated/main/packages/docs/public/logo-fill.png" alt="tabler-animated logo" width="125" />
 </div>
 
 <h1 align="center">tabler-animated</h1>
@@ -55,4 +55,4 @@ const App = () => {
 
 ## Contributing
 
-Contributions are always welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to report issues, set up the project locally, and add a new icon.
+Contributions are always welcome. See [CONTRIBUTING.md](https://github.com/tungulin/tabler-animated/blob/main/CONTRIBUTING.md) for how to report issues, set up the project locally, and add a new icon.

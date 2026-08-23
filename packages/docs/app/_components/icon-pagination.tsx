@@ -7,7 +7,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious
-} from '@/src/ui/pagination';
+} from '@/src/ui';
 import { useQueryStates } from 'nuqs';
 import { iconSearchParams } from '../(root)/search-params';
 

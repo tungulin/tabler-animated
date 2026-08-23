@@ -19,7 +19,7 @@ export const LandingHero = ({ initialPackageManager }: LandingHeroProps) => {
 
   return (
     <div className='mt-18 flex w-full flex-col items-center justify-center gap-5'>
-      <Card className='relative overflow-hidden p-4'>
+      <Card className='relative overflow-hidden rounded-3xl p-4'>
         <IconEaseInOutControlPoints ref={logoIconRef} size={80} />
         <BorderBeam duration={6} size={100} />
       </Card>
