@@ -1,7 +1,14 @@
 {
   "name": "tabler-animated",
   "version": "1.0.12",
+  "description": "Animated tabler icons for React",
   "license": "MIT",
+  "homepage": "https://tabler-animated-docs.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tungulin/tabler-animated.git",
+    "directory": "packages/core"
+  },
   "keywords": [
     "icons",
     "react icons",
