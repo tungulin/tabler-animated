@@ -7,16 +7,16 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 import type { IconHandle, IconProps } from '../types';
 
 const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
+  duration: 0.3,
+  ease: [0.68, -0.6, 0.32, 1.6]
 };
 
-const PATH_VARIANTS: Variants = {
+const ARROW_VARIANTS: Variants = {
   normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
+  animate: { y: 1 }
 };
 
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconCloudDownload = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -66,19 +66,22 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           strokeLinejoin='round'
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-          <motion.path
+          <path d='M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4' />
+          <motion.g
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
             transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
-          />
+            variants={ARROW_VARIANTS}
+          >
+            <path d='M12 13l0 9' />
+            <path d='M9 19l3 3l3 -3' />
+          </motion.g>
         </svg>
       </div>
     );
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconCloudDownload.displayName = 'IconCloudDownload';
 
-export { IconChevronDown };
+export { IconCloudDownload };

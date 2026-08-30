@@ -1,22 +1,23 @@
 'use client';
 
-import type { Transition, Variants } from 'motion/react';
+import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
 import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import type { IconHandle, IconProps } from '../types';
 
-const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
-};
-
-const PATH_VARIANTS: Variants = {
+const CAPSULE_VARIANTS: Variants = {
   normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
+  animate: {
+    y: [0, -3, 0, -2, 0],
+    transition: {
+      duration: 0.6,
+      ease: 'easeInOut'
+    }
+  }
 };
 
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconMicrophone = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -64,14 +65,17 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'
+          style={{ overflow: 'visible' }}
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+          <path d='M5 10a7 7 0 0 0 14 0' />
+          <path d='M8 21l8 0' />
+          <path d='M12 17l0 4' />
           <motion.path
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
-            transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
+            d='M9 5a3 3 0 0 1 3 -3a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3a3 3 0 0 1 -3 -3l0 -5'
+            variants={CAPSULE_VARIANTS}
           />
         </svg>
       </div>
@@ -79,6 +83,6 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconMicrophone.displayName = 'IconMicrophone';
 
-export { IconChevronDown };
+export { IconMicrophone };

@@ -6,17 +6,50 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import type { IconHandle, IconProps } from '../types';
 
-const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
+const CIRCLE_TRANSITION: Transition = {
+  duration: 0.3,
+  delay: 0.1,
+  opacity: { delay: 0.15 }
 };
 
-const PATH_VARIANTS: Variants = {
-  normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
+const CIRCLE_VARIANTS: Variants = {
+  normal: {
+    pathLength: 1,
+    opacity: 1
+  },
+  animate: {
+    pathLength: [0, 1],
+    opacity: [0, 1]
+  }
 };
 
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const GRID_TRANSITION: Transition = {
+  duration: 0.7,
+  delay: 0.5,
+  opacity: { delay: 0.5 }
+};
+
+const GRID_VARIANTS: Variants = {
+  normal: {
+    pathLength: 1,
+    opacity: 1,
+    pathOffset: 0
+  },
+  animate: {
+    pathLength: [0, 1],
+    opacity: [0, 1],
+    pathOffset: [1, 0]
+  }
+};
+
+const GRID_PARTS = [
+  'M3.6 9h16.8',
+  'M3.6 15h16.8',
+  'M11.5 3a17 17 0 0 0 0 18',
+  'M12.5 3a17 17 0 0 1 0 18'
+];
+
+const IconWorld = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -69,16 +102,26 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           <motion.path
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
-            transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
+            d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0'
+            transition={CIRCLE_TRANSITION}
+            variants={CIRCLE_VARIANTS}
           />
+          {GRID_PARTS.map((d) => (
+            <motion.path
+              key={d}
+              animate={controls}
+              initial='normal'
+              d={d}
+              transition={GRID_TRANSITION}
+              variants={GRID_VARIANTS}
+            />
+          ))}
         </svg>
       </div>
     );
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconWorld.displayName = 'IconWorld';
 
-export { IconChevronDown };
+export { IconWorld };

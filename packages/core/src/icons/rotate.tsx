@@ -7,16 +7,17 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 import type { IconHandle, IconProps } from '../types';
 
 const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
+  type: 'spring',
+  stiffness: 250,
+  damping: 25
 };
 
-const PATH_VARIANTS: Variants = {
-  normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
+const SVG_VARIANTS: Variants = {
+  normal: { rotate: '0deg' },
+  animate: { rotate: '-50deg' }
 };
 
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconRotate = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -54,7 +55,7 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
 
     return (
       <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} {...props}>
-        <svg
+        <motion.svg
           xmlns='http://www.w3.org/2000/svg'
           width={size}
           height={size}
@@ -64,21 +65,19 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'
+          animate={controls}
+          initial='normal'
+          variants={SVG_VARIANTS}
+          transition={DEFAULT_TRANSITION}
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-          <motion.path
-            animate={controls}
-            initial='normal'
-            d='M6 9l6 6l6 -6'
-            transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
-          />
-        </svg>
+          <path d='M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5' />
+        </motion.svg>
       </div>
     );
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconRotate.displayName = 'IconRotate';
 
-export { IconChevronDown };
+export { IconRotate };

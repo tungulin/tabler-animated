@@ -1,22 +1,32 @@
 'use client';
 
-import type { Transition, Variants } from 'motion/react';
+import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
 import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import type { IconHandle, IconProps } from '../types';
 
-const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
+const LINE_VARIANTS: Variants = {
+  normal: {
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      opacity: { duration: 0.1 }
+    }
+  },
+  animate: {
+    pathLength: [0, 1],
+    opacity: [0, 1],
+    transition: {
+      duration: 0.4,
+      delay: 0.15,
+      opacity: { duration: 0.1 }
+    }
+  }
 };
 
-const PATH_VARIANTS: Variants = {
-  normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
-};
-
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconMicrophoneOff = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -66,12 +76,15 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           strokeLinejoin='round'
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+          <path d='M9 5a3 3 0 0 1 6 0v5a3 3 0 0 1 -.13 .874m-2 2a3 3 0 0 1 -3.87 -2.872v-1' />
+          <path d='M5 10a7 7 0 0 0 10.846 5.85m2 -2a6.967 6.967 0 0 0 1.152 -3.85' />
+          <path d='M8 21l8 0' />
+          <path d='M12 17l0 4' />
           <motion.path
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
-            transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
+            d='M3 3l18 18'
+            variants={LINE_VARIANTS}
           />
         </svg>
       </div>
@@ -79,6 +92,6 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconMicrophoneOff.displayName = 'IconMicrophoneOff';
 
-export { IconChevronDown };
+export { IconMicrophoneOff };

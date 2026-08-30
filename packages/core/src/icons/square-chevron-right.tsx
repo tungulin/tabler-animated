@@ -1,22 +1,20 @@
 'use client';
 
-import type { Transition, Variants } from 'motion/react';
+import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
 import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import type { IconHandle, IconProps } from '../types';
 
-const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
+const CHEVRON_VARIANTS: Variants = {
+  normal: { translateX: 0, opacity: 1 },
+  animate: {
+    translateX: [0, 3, 0],
+    transition: { duration: 0.4 }
+  }
 };
 
-const PATH_VARIANTS: Variants = {
-  normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
-};
-
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconSquareChevronRight = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -66,12 +64,12 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           strokeLinejoin='round'
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+          <path d='M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14' />
           <motion.path
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
-            transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
+            d='M11 9l3 3l-3 3'
+            variants={CHEVRON_VARIANTS}
           />
         </svg>
       </div>
@@ -79,6 +77,6 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconSquareChevronRight.displayName = 'IconSquareChevronRight';
 
-export { IconChevronDown };
+export { IconSquareChevronRight };

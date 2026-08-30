@@ -1,7 +1,7 @@
 import { ThemeButton } from '../theme-button';
 import { Button, Card } from '@/src/ui';
 import { LINKS } from '@/src/constants';
-import { IconBrandGithub, IconEaseInOutControlPoints } from 'tabler-animated';
+import { IconBrandGithub, IconEaseInOutControlPoints, IconBrandNpm } from 'tabler-animated';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/public/logo.png';
@@ -19,6 +19,11 @@ export const LandingHeader = () => {
         <Button asChild size='sm' className='rounded-xl' variant='ghost'>
           <Link href={LINKS.REPOSITORY} target='_blank' rel='noopener noreferrer'>
             <IconBrandGithub />
+          </Link>
+        </Button>
+        <Button asChild size='sm' className='rounded-xl' variant='ghost'>
+          <Link href={LINKS.NPM} target='_blank' rel='noopener noreferrer'>
+            <IconBrandNpm />
           </Link>
         </Button>
         <ThemeButton />

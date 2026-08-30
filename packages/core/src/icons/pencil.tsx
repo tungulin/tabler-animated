@@ -1,22 +1,25 @@
 'use client';
 
-import type { Transition, Variants } from 'motion/react';
+import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
 import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import type { IconHandle, IconProps } from '../types';
 
-const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
+const PENCIL_VARIANTS: Variants = {
+  normal: {
+    rotate: 0,
+    x: 0,
+    y: 0
+  },
+  animate: {
+    rotate: [-0.5, 0.5, -0.5],
+    x: [0, -1, 1.5, 0],
+    y: [0, 1.5, -1, 0]
+  }
 };
 
-const PATH_VARIANTS: Variants = {
-  normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
-};
-
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconPencil = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -64,21 +67,24 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'
+          style={{ overflow: 'visible' }}
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-          <motion.path
+          <motion.g
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
-            transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
-          />
+            style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
+            variants={PENCIL_VARIANTS}
+          >
+            <path d='M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4' />
+            <path d='M13.5 6.5l4 4' />
+          </motion.g>
         </svg>
       </div>
     );
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconPencil.displayName = 'IconPencil';
 
-export { IconChevronDown };
+export { IconPencil };

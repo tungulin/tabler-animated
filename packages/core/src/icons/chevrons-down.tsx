@@ -16,7 +16,7 @@ const PATH_VARIANTS: Variants = {
   animate: { y: [0, 2, 0] }
 };
 
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconChevronsDown = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -69,7 +69,14 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           <motion.path
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
+            d='M7 7l5 5l5 -5'
+            transition={DEFAULT_TRANSITION}
+            variants={PATH_VARIANTS}
+          />
+          <motion.path
+            animate={controls}
+            initial='normal'
+            d='M7 13l5 5l5 -5'
             transition={DEFAULT_TRANSITION}
             variants={PATH_VARIANTS}
           />
@@ -79,6 +86,6 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconChevronsDown.displayName = 'IconChevronsDown';
 
-export { IconChevronDown };
+export { IconChevronsDown };

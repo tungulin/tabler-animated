@@ -7,16 +7,16 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 import type { IconHandle, IconProps } from '../types';
 
 const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
+  duration: 0.5,
+  ease: 'easeInOut'
 };
 
-const PATH_VARIANTS: Variants = {
-  normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
+const MARK_VARIANTS: Variants = {
+  normal: { rotate: 0 },
+  animate: { rotate: [0, -10, 10, -10, 0] }
 };
 
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconHelp = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -66,19 +66,23 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           strokeLinejoin='round'
         >
           <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-          <motion.path
+          <path d='M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0' />
+          <motion.g
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
+            style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
             transition={DEFAULT_TRANSITION}
-            variants={PATH_VARIANTS}
-          />
+            variants={MARK_VARIANTS}
+          >
+            <path d='M12 17l0 .01' />
+            <path d='M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4' />
+          </motion.g>
         </svg>
       </div>
     );
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconHelp.displayName = 'IconHelp';
 
-export { IconChevronDown };
+export { IconHelp };

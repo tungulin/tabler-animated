@@ -1,22 +1,31 @@
 'use client';
 
-import type { Transition, Variants } from 'motion/react';
+import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
 import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import type { IconHandle, IconProps } from '../types';
 
-const DEFAULT_TRANSITION: Transition = {
-  times: [0, 0.4, 1],
-  duration: 0.5
-};
-
 const PATH_VARIANTS: Variants = {
-  normal: { y: 0 },
-  animate: { y: [0, 2, 0] }
+  normal: {
+    opacity: 1,
+    pathLength: 1,
+    transition: {
+      duration: 0.6,
+      opacity: { duration: 0.1 }
+    }
+  },
+  animate: {
+    opacity: [0, 1],
+    pathLength: [0, 1],
+    transition: {
+      duration: 0.6,
+      opacity: { duration: 0.1 }
+    }
+  }
 };
 
-const IconChevronDown = forwardRef<IconHandle, IconProps>(
+const IconBolt = forwardRef<IconHandle, IconProps>(
   ({ onMouseEnter, onMouseLeave, size = 28, ...props }, ref) => {
     const controls = useAnimation();
     const isControlledRef = useRef(false);
@@ -69,8 +78,7 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
           <motion.path
             animate={controls}
             initial='normal'
-            d='M6 9l6 6l6 -6'
-            transition={DEFAULT_TRANSITION}
+            d='M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11'
             variants={PATH_VARIANTS}
           />
         </svg>
@@ -79,6 +87,6 @@ const IconChevronDown = forwardRef<IconHandle, IconProps>(
   }
 );
 
-IconChevronDown.displayName = 'IconChevronDown';
+IconBolt.displayName = 'IconBolt';
 
-export { IconChevronDown };
+export { IconBolt };
